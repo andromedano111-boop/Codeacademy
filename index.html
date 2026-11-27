@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn programming step by step with interactive lessons, quizzes and coding practice.">
+  <title>CodeAcademy GH — Learn to Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-page="home"><span class="brand-mark">&lt;/&gt;</span><span>CodeAcademy <b>GH</b></span></a>
+      <div class="side-label">LEARN</div>
+      <button class="nav-link active" data-page="home"><span>⌂</span> Overview</button>
+      <button class="nav-link" data-page="courses"><span>▤</span> Explore courses</button>
+      <button class="nav-link" data-page="playground"><span>⌘</span> Code playground</button>
+      <button class="nav-link" data-page="challenges"><span>⚡</span> Challenges</button>
+      <div class="side-label">YOUR SPACE</div>
+      <button class="nav-link" data-page="progress"><span>◷</span> My progress</button>
+      <button class="nav-link" data-page="pricing"><span>◇</span> Upgrade to Pro</button>
+      <div class="sidebar-bottom"><div class="avatar">S</div><div><strong>Student account</strong><small>Free plan</small></div><span class="online-dot"></span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div class="crumb">Learning platform <span>/</span> <b id="crumbName">Overview</b></div>
+        <div class="top-actions"><span class="streak">🔥 <b id="streakCount">0</b> day streak</span><button class="upgrade-small" data-page="pricing">Upgrade plan ↗</button></div>
+      </header>
+
+      <section class="page active" id="page-home">
+        <div class="welcome-row"><div><div class="eyebrow">YOUR CODING JOURNEY STARTS HERE</div><h1>Learn to code.<br><span>Build your future.</span></h1><p class="muted">Practical programming lessons, hands-on exercises and projects — all in one place.</p><button class="primary-btn" data-page="courses">Explore courses <span>→</span></button></div><div class="hero-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="code-tile"><span class="tile-dot"></span><span class="tile-dot"></span><span class="tile-dot"></span><pre><i>01</i> <em>def</em> build_future():\n<i>02</i>   skills = <b>"programming"</b>\n<i>03</i>   <em>return</em> skills\n<i>04</i>\n<i>05</i> print(build_future())</pre><div class="tile-result">✓ Keep learning. Keep building.</div></div><div class="floating-tag tag-python">🐍 Python</div><div class="floating-tag tag-js">JS JavaScript</div><div class="floating-tag tag-html">▣ HTML + CSS</div></div></div>
+        <div class="stats-grid"><div class="stat-card"><span class="stat-icon purple">▤</span><div><strong id="statCourses">8</strong><small>Learning paths</small></div></div><div class="stat-card"><span class="stat-icon green">✓</span><div><strong id="statLessons">0</strong><small>Lessons completed</small></div></div><div class="stat-card"><span class="stat-icon orange">⚡</span><div><strong id="statXP">0 XP</strong><small>Experience earned</small></div></div><div class="stat-card"><span class="stat-icon blue">◎</span><div><strong>Beginner</strong><small>Your current level</small></div></div></div>
+        <div class="section-heading"><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>Popular learning paths</h2></div><button class="text-btn" data-page="courses">View all courses →</button></div>
+        <div class="course-grid" id="homeCourses"></div>
+        <div class="promo-banner"><div><span class="eyebrow">LEVEL UP YOUR SKILLS</span><h2>Unlock your full potential.</h2><p>Get every learning path, projects and advanced practice with Pro.</p><button class="light-btn" data-page="pricing">See membership plans →</button></div><div class="promo-symbol">✳</div></div>
+      </section>
+
+      <section class="page" id="page-courses">
+        <div class="page-heading"><div class="eyebrow">THE COURSE LIBRARY</div><h1>Explore <span>programming.</span></h1><p class="muted">Choose a language and start building real skills.</p></div>
+        <div class="filter-row"><input id="courseSearch" class="search-input" placeholder="⌕  Search languages or topics..." aria-label="Search courses"><select id="levelFilter"><option value="all">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+        <div class="course-grid" id="allCourses"></div>
+      </section>
+
+      <section class="page" id="page-lesson">
+        <button class="back-btn" data-page="courses">← All courses</button>
+        <div id="lessonContent"></div>
+      </section>
+
+      <section class="page" id="page-playground">
+        <div class="page-heading"><div class="eyebrow">PRACTISE YOUR SKILLS</div><h1>Code <span>playground.</span></h1><p class="muted">Experiment with JavaScript directly in your browser. Other language examples are available in the courses.</p></div>
+        <div class="editor-toolbar"><label for="editorLanguage">Language</label><select id="editorLanguage"><option>JavaScript</option></select><button class="run-btn" id="runCode">▶ Run code</button><button class="reset-btn" id="resetCode">Reset</button></div>
+        <div class="editor-layout"><div class="editor-panel"><div class="editor-head"><span>main.js</span><span>● Ready</span></div><textarea id="codeEditor" spellcheck="false" aria-label="Code editor">function greet(name) {
+  return `Hello, ${name}! Welcome to CodeAcademy GH.`;
+}
+
+console.log(greet("Developer"));</textarea></div><div class="output-panel"><div class="editor-head"><span>OUTPUT</span><span id="runStatus">Waiting to run</span></div><pre id="codeOutput">Your program output will appear here.</pre></div></div>
+        <p class="note">Safety note: this playground runs JavaScript in a restricted browser worker. It does not execute Python, C++, Java or server-side code.</p>
+      </section>
+
+      <section class="page" id="page-challenges">
+        <div class="page-heading"><div class="eyebrow">PUT YOUR KNOWLEDGE TO THE TEST</div><h1>Daily <span>challenges.</span></h1><p class="muted">Small steps make strong developers. Complete a challenge to earn XP.</p></div>
+        <div class="challenge-card"><div class="challenge-top"><span class="challenge-badge">BEGINNER · JAVASCRIPT</span><span class="xp-badge">+20 XP</span></div><h2>Make a greeting</h2><p>Which JavaScript command prints <code>Hello, world!</code> to the browser console?</p><div class="quiz-options" id="challengeOptions"></div><div id="challengeFeedback" class="feedback" aria-live="polite"></div></div>
+      </section>
+
+      <section class="page" id="page-progress">
+        <div class="page-heading"><div class="eyebrow">YOUR PERSONAL DASHBOARD</div><h1>Your learning <span>progress.</span></h1><p class="muted">Every lesson completed moves you closer to your goals.</p></div>
+        <div class="progress-overview"><div><small>LESSONS COMPLETED</small><strong id="progressCompleted">0</strong></div><div><small>EXPERIENCE POINTS</small><strong id="progressXP">0 XP</strong></div><div><small>COURSES STARTED</small><strong id="progressStarted">0</strong></div></div>
+        <h2 class="subheading">Course progress</h2><div id="progressCourses" class="progress-list"></div>
+      </section>
+
+      <section class="page" id="page-pricing">
+        <div class="page-heading center"><div class="eyebrow">SIMPLE, STUDENT-FRIENDLY PRICING</div><h1>Invest in your <span>future.</span></h1><p class="muted">Start free. Upgrade when you're ready for more.</p></div>
+        <div class="pricing-grid">
+          <div class="price-card"><div class="plan-name">Free</div><div class="price">GH₵0 <small>/ forever</small></div><p class="muted">Explore programming at your own pace.</p><ul><li>Introductory lessons</li><li>Selected coding exercises</li><li>Basic progress tracking</li><li>Community learning</li></ul><button class="outline-btn" disabled>Current starter plan</button></div>
+          <div class="price-card featured"><div class="popular-label">MOST POPULAR</div><div class="plan-name">Student Pro</div><div class="price">GH₵25 <small>/ month</small></div><p class="muted">For learners serious about growing.</p><ul><li>All programming courses</li><li>All quizzes and exercises</li><li>Guided practical projects</li><li>Certificates of completion</li><li>Progress analytics</li></ul><button class="primary-btn subscribe-btn" data-plan="student_pro">Choose Student Pro</button></div>
+          <div class="price-card"><div class="plan-name">Annual Pro</div><div class="price">GH₵250 <small>/ year</small></div><p class="muted">Best value for committed learners.</p><ul><li>Everything in Student Pro</li><li>12 months of access</li><li>Priority learning support</li><li>Save GH₵50 vs monthly</li></ul><button class="outline-btn subscribe-btn" data-plan="annual_pro">Choose Annual Pro</button></div>
+        </div>
+        <p class="note center">Demo mode: subscription buttons explain the payment setup. Add approved Paystack credentials and complete the server setup before accepting real payments.</p>
+      </section>
+
+      <footer><span>© 2026 CodeAcademy GH</span><span>Learn · Practise · Build</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
